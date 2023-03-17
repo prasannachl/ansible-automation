@@ -1,0 +1,18 @@
+---
+  - hosts: localhost
+    vars:
+      - ansible_python_interpreter: *******
+    tasks:
+      - name: create an ec2
+        ec2: 
+          key_name: **********
+          instance_type: t2.micro
+          image: ami-**********
+          region: us-east-1
+          aws_access_key: *************
+          aws_secret_key: **************  
+          wait: yes
+            #group: webserver
+            #count: 3
+          vpc_subnet_id: subnet-********
+          assign_public_ip: yes
