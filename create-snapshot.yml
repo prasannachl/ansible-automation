@@ -1,3 +1,5 @@
+creation of Snapshots for EBS volumes
+
 ---
 - name: Create EBS volume snapshots
   hosts: localhost
