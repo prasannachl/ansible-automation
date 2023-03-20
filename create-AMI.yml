@@ -1,11 +1,13 @@
+Creation of ansible playbook for AMI
+
 ---
 - name: Create AMI for EC2 instance
   hosts: localhost
   gather_facts: true
 
   vars:
-    instance_id: "i-080a85e60f5267d8a"
-    ansible_python_interpreter: /usr/bin/python3
+    instance_id: "i-******"
+    ansible_python_interpreter: ****
 
   tasks:
     - name: Create AMI for EC2 instance
