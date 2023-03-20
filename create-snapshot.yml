@@ -7,11 +7,11 @@ creation of Snapshots for EBS volumes
 
   vars:
     volumes:
-      - volume_id: vol-0adcfbca037ec4bc0
+      - volume_id: vol-88888
         snapshot_description: "Snapshot for volume 1"
-      - volume_id: vol-03c71d9abb336e472
+      - volume_id: vol-8888
         snapshot_description: "Snapshot for volume 2"
-    ansible_python_interpreter: /usr/bin/python3      
+    ansible_python_interpreter: .....      
 
   tasks:
     - name: Create EBS volume snapshots
