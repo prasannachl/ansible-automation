@@ -1,0 +1,22 @@
+---
+- name: Create AMI for EC2 instance
+  hosts: localhost
+  gather_facts: true
+
+  vars:
+    instance_id: "i-080a85e60f5267d8a"
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Create AMI for EC2 instance
+      ec2_ami:
+        instance_id: "{{ instance_id }}"
+        name: my-ami-{{ ansible_date_time.date }}
+        description: My AMI created by Ansible
+        no_reboot: true
+        region: us-east-1
+      register: ami
+
+    - name: Display AMI ID
+      debug:
+        var: ami.image_id

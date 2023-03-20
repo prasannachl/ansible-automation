@@ -1,0 +1,20 @@
+---
+- name: Terminate EC2 instance
+  hosts: localhost
+  gather_facts: true
+
+  vars:
+    instance_id: "i-0004505fd1aeb4eec"
+    ansible_python_interpreter:  /usr/bin/python3
+
+  tasks:
+    - name: Terminate EC2 instance
+      ec2_instance:
+        region: us-east-1
+        instance_ids: "{{ instance_id }}"
+        state: absent
+      register: ec2_termination_result
+
+    - name: Display termination result
+      debug:
+        var: ec2_termination_result
