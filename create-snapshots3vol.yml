@@ -5,11 +5,11 @@
 
   vars:
     volumes:
-      - volume_id: vol-0261f9c36895ff4d1
+      - volume_id: vol-.....
         snapshot_description: "Snapshot for volume 1"
-      - volume_id: vol-040abe303e2c11e16
+      - volume_id: vol-....
         snapshot_description: "Snapshot for volume 2"
-      - volume_id: vol-08caca2d18b1f6dd8
+      - volume_id: vol-.....
         snapshot_description: "Snapshot for volume 3"
     ansible_python_interpreter:  /usr/bin/python3      
     
