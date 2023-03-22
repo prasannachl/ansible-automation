@@ -1,0 +1,10 @@
+---
+  - hosts: localhost
+    tasks:
+      - name: print names
+        shell: echo "{{ item }}"
+        with_items:
+          - prasy
+          - kiran
+          - vivan
+          - lucky  
