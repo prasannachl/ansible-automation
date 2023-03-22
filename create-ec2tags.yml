@@ -1,0 +1,29 @@
+---
+  - hosts: localhost
+    vars:
+      - ansible_python_interpreter: /usr/bin/python3
+
+    tasks:
+      - name: Gather instance facts
+        ec2_instance_info:
+          filters:
+            "tag:Name": delta
+        register: instance_facts
+     
+      - name: Debug statement for instance id
+        debug:
+          msg: "{{ instance_facts }}"
+
+      - name: get instance id
+        set_fact: 
+          instanceid: "{{ instance_facts.instances | map(attribute='instance_id') | list }}"
+
+      - name: create an AMI
+        ec2_ami:
+          instance_id: "{{ item }}"
+          wait: yes
+          name: deltaansible
+          tags:
+            Name: deltaansible
+            Service: TestService
+        with_items: "{{ instanceid }}"        
