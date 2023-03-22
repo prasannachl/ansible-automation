@@ -1,0 +1,31 @@
+---
+- name: Create EBS volume snapshots
+  hosts: localhost
+  gather_facts: true
+
+  vars:
+    volumes:
+      - volume_id: vol-0261f9c36895ff4d1
+        snapshot_description: "Snapshot for volume 1"
+      - volume_id: vol-040abe303e2c11e16
+        snapshot_description: "Snapshot for volume 2"
+      - volume_id: vol-08caca2d18b1f6dd8
+        snapshot_description: "Snapshot for volume 3"
+    ansible_python_interpreter:  /usr/bin/python3      
+    
+
+  tasks:
+    - name: Create EBS volume snapshots
+      ec2_snapshot:
+        region: us-east-1
+        volume_id: "{{ item.volume_id }}"
+        description: "{{ item.snapshot_description }}"
+      with_items: "{{ volumes }}"
+      register: snapshot_result
+
+    - name: Display snapshot IDs
+      debug:
+        var: item.id
+      with_items: "{{ snapshot_result.results }}"  
+
+
