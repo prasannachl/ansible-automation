@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  ansible_python_interpretor: /usr/bin/python3
+  ansible_python_interpretor: /u
   remote_user: root
   roles:
     - ec2-role
