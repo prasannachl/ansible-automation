@@ -1,0 +1,5 @@
+---
+ aws_access_key: AKIAXR7QXYXEUQQHK7MU
+ aws_secret_key: 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
+ ansible_python_interpreter: /usr/bin/python3
+ ec2_tag: "deltacargo"

@@ -1,0 +1,7 @@
+---
+ - name: Create ec2 role 
+   hosts: localhost
+   become: yes  
+   roles:
+     - ec2-role
+

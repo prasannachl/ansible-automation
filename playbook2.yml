@@ -1,0 +1,6 @@
+---
+ - name: Create EC2 instances with Tag2
+   hosts: localhost
+   become: yes
+   roles:
+     - ec2-role

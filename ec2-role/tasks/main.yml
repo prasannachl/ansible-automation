@@ -1,0 +1,19 @@
+---
+  - name: Launch EC2 instance with tag "{{ ec2_tag }}"
+    ec2: 
+      key_name: feb2023
+      instance_type: t2.micro
+      image: ami-005f9685cb30f234b
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      region: us-east-1
+      wait: yes
+            #group: webserver
+      count: 1
+      vpc_subnet_id: subnet-0f2414b0dd1f21e37
+      assign_public_ip: yes
+      instance_tags:
+        Name: "deltacargo"
+        
+      
+      
